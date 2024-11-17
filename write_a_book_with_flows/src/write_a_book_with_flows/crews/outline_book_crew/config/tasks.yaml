@@ -18,5 +18,7 @@ generate_outline:
     Here is some additional information about the author's desired goal for the book:\n\n {goal}
 
   expected_output: >
-    An outline of chapters, with titles and descriptions of what each chapter will contain.
+    A pydantic dataset of chapters that each contain one title (str) and one description (str) of what each chapter 
+    in the book will contain. No intro or conclusion sentences must be written.
+    JSON Example: {"chapters": [{"title": "Chapter 1: Introduction", "description": "This chapter will introduce..."}]}
   agent: outliner

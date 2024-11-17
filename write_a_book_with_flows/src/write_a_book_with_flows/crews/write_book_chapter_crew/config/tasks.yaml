@@ -31,5 +31,6 @@ write_chapter:
     Here is the outline of the entire book:\n\n
     {book_outline}
   expected_output: >
-    A markdown-formatted chapter of around 3,000 words that covers the provided chapter title and outline description.
+    An exact pydantic list containing title (str) and content (str).
+    Content contains A markdown-formatted chapter of around 3,000 words that covers the provided chapter title and outline description.
   agent: writer

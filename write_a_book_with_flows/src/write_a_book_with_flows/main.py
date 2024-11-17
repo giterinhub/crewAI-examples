@@ -2,6 +2,9 @@
 import asyncio
 from typing import List
 
+# import sys
+# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 from crewai.flow.flow import Flow, listen, start
 from pydantic import BaseModel
 
@@ -12,21 +15,31 @@ from write_a_book_with_flows.types import Chapter, ChapterOutline
 
 from .crews.outline_book_crew.outline_crew import OutlineCrew
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+from langtrace_python_sdk import langtrace # Must precede any llm module imports
+langtrace.init(api_key = os.environ.get("LANGTRACE_API_KEY", "abcdefg"))
 
 class BookState(BaseModel):
-    title: str = "The Current State of AI in September 2024"
+    title: str = "Using Multiple Azure Tenants in a Single Organization"
     book: List[Chapter] = []
     book_outline: List[ChapterOutline] = []
     topic: str = (
-        "Exploring the latest trends in AI across different industries as of September 2024"
+        "Exploring the use cases against and for using more than one Azure Tenant in one Organization as of November 2024"
     )
     goal: str = """
-        The goal of this book is to provide a comprehensive overview of the current state of artificial intelligence in September 2024.
-        It will delve into the latest trends impacting various industries, analyze significant advancements,
-        and discuss potential future developments. The book aims to inform readers about cutting-edge AI technologies
-        and prepare them for upcoming innovations in the field.
+        The goal of this book is to provide a comprehensive overview of the benefits (if any) and drawbacks of using more 
+        than one Microsoft Azure Tenant in one Organization as of November 2024.
+        It will delve into the complexity involved, the cost overhead, analyze if this is more secure or less secure,
+        and discuss potential future developments. The book aims to inform readers about whether more than one Azure Tenant
+        makes sense, and provide detailed use cases on how to meet industry security standards like 
+        - Consistent Enforced Segregation of Duty
+        - Consistent Enforced Separation of Environments (Dev, Test, Prod)
+        - Consistent Enforced Zero Trust
+        - The use case for Privileged Identity Management and Just-In-Time Access
     """
-
 
 class BookFlow(Flow[BookState]):
     initial_state = BookState
@@ -40,10 +53,14 @@ class BookFlow(Flow[BookState]):
             .kickoff(inputs={"topic": self.state.topic, "goal": self.state.goal})
         )
 
+
+        print("Full raw Outline output:", output)
+
         chapters = output["chapters"]
         print("Chapters:", chapters)
 
         self.state.book_outline = chapters
+        print("Finished the Book Outline Crew")
         return chapters
 
     @listen(generate_book_outline)
@@ -68,6 +85,9 @@ class BookFlow(Flow[BookState]):
                     }
                 )
             )
+
+            print("Full raw Writer output:", output)
+
             title = output["title"]
             content = output["content"]
             chapter = Chapter(title=title, content=content)
