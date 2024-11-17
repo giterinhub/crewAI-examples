@@ -20,5 +20,5 @@ generate_outline:
   expected_output: >
     A pydantic dataset of chapters that each contain one title (str) and one description (str) of what each chapter 
     in the book will contain. No intro or conclusion sentences must be written.
-    JSON Example: {"chapters": [{"title": "Chapter 1: Introduction", "description": "This chapter will introduce..."}]}
+    Explicit Output ``{{"chapters":[{{"title"="aa","description"="bb"}},{{"title"="cc","description"="dd"}}] }}``
   agent: outliner

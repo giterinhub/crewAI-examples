@@ -22,6 +22,9 @@ load_dotenv()
 from langtrace_python_sdk import langtrace # Must precede any llm module imports
 langtrace.init(api_key = os.environ.get("LANGTRACE_API_KEY", "abcdefg"))
 
+def cache_function(*args):
+    return False
+
 class BookState(BaseModel):
     title: str = "Using Multiple Azure Tenants in a Single Organization"
     book: List[Chapter] = []

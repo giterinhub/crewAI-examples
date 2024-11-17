@@ -33,4 +33,5 @@ write_chapter:
   expected_output: >
     An exact pydantic list containing title (str) and content (str).
     Content contains A markdown-formatted chapter of around 3,000 words that covers the provided chapter title and outline description.
+    Explicit Output ``{{"chapter":[{{"title"="aa","content"="bb"}}] }}``
   agent: writer
