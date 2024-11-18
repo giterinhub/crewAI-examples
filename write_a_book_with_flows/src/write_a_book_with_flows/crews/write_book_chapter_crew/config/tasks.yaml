@@ -1,37 +1,37 @@
 research_chapter:
   description: >
-    Research the provided chapter topic, title, and outline to gather additional content that will be helpful in writing the chapter.
-    Ensure you focus on reliable, high-quality sources of information.
+    Recherchieren Sie das Thema des Romans "Unterm Rad" von Hermann Hesse, um die wichtigsten Informationen zu sammeln, die für die Erstellung einer Buchgliederung nützlich sind. 
+    Stellen Sie sicher, dass Sie sich auf hochwertige, zuverlässige Quellen konzentrieren.
 
-    Here is some additional information about the author's desired goal for the book and the chapter:\n\n {goal}
-    Here is the outline description for the chapter:\n\n {chapter_description}
+    Hier sind einige zusätzliche Informationen über das gewünschte Ziel des Autors für das Buch:\n\n {goal}
+    Hier ist die Gliederungsbeschreibung für das Kapitel:\n\n {chapter_description}
 
-    When researching, consider the following key points:
-    - you need to gather enough information to write a 3,000-word chapter
-    - The chapter you are researching needs to fit in well with the rest of the chapters in the book.
+    Beim Recherchieren sollten Sie die folgenden Schlüsselpunkte berücksichtigen:
+    - Sie müssen genügend Informationen sammeln, um ein Kapitel von 3.000 Wörtern zu schreiben.
+    - Das Kapitel, das Sie recherchieren, muss gut zu den anderen Kapiteln im Buch passen.
 
-    Here is the outline of the entire book:\n\n
+    Hier ist die Gliederung des gesamten Buches:\n\n
     {book_outline}
   expected_output: >
-    A set of additional insights and information that can be used in writing the chapter.
+    Eine Sammlung zusätzlicher Erkenntnisse und Informationen, die beim Schreiben des Kapitels verwendet werden können.
   agent: researcher
 
 write_chapter:
   description: >
-    Write a well-structured chapter based on the chapter title, goal, and outline description. 
-    Each chapter should be written in markdown and should contain around 3,000 words.
+    Schreiben Sie ein gut strukturiertes Kapitel basierend auf dem Kapiteltitel, Ziel und der Gliederungsbeschreibung. 
+    Jedes Kapitel sollte im Markdown-Format geschrieben sein und etwa 3.000 Wörter enthalten.
 
-    Here is the topic for the book: {topic}
-    Here is the title of the chapter: {chapter_title}
-    Here is the outline description for the chapter:\n\n {chapter_description}
+    Hier ist das Thema des Buches: {topic}
+    Hier ist der Titel des Kapitels: {chapter_title}
+    Hier ist die Gliederungsbeschreibung für das Kapitel:\n\n {chapter_description}
 
-    Important notes:
-    - The chapter you are writing needs to fit in well with the rest of the chapters in the book.
+    Wichtige Hinweise:
+    - Das Kapitel, das Sie schreiben, muss gut zu den anderen Kapiteln im Buch passen.
 
-    Here is the outline of the entire book:\n\n
+    Hier ist die Gliederung des gesamten Buches:\n\n
     {book_outline}
   expected_output: >
-    An exact pydantic list containing title (str) and content (str).
-    Content contains A markdown-formatted chapter of around 3,000 words that covers the provided chapter title and outline description.
-    Explicit Output ``{{"title"="aa","content"="bb"}}``
+    Eine genaue pydantische Liste, die Titel (str) und Inhalt (str) enthält.
+    Der Inhalt enthält ein im Markdown-Format geschriebenes Kapitel von etwa 3.000 Wörtern, das den bereitgestellten Kapiteltitel und die Gliederungsbeschreibung abdeckt.
+    Explizite Ausgabe ``{{"title"="aa","content"="bb"}}``
   agent: writer

@@ -26,22 +26,15 @@ def cache_function(*args):
     return False
 
 class BookState(BaseModel):
-    title: str = "Using Multiple Azure Tenants in a Single Organization"
+    title: str = "Unterm Rad - Neuauflage 2024"
     book: List[Chapter] = []
     book_outline: List[ChapterOutline] = []
     topic: str = (
-        "Exploring the use cases against and for using more than one Azure Tenant in one Organization as of November 2024"
+        "Neuschreibung des Romans 'Unterm Rad' von Hermann Hesse mit einer weiblichen Hauptfigur und in die moderne Zeit des Jahres 2024 übertragen."
     )
     goal: str = """
-        The goal of this book is to provide a comprehensive overview of the benefits (if any) and drawbacks of using more 
-        than one Microsoft Azure Tenant in one Organization as of November 2024.
-        It will delve into the complexity involved, the cost overhead, analyze if this is more secure or less secure,
-        and discuss potential future developments. The book aims to inform readers about whether more than one Azure Tenant
-        makes sense, and provide detailed use cases on how to meet industry security standards like 
-        - Consistent Enforced Segregation of Duty
-        - Consistent Enforced Separation of Environments (Dev, Test, Prod)
-        - Consistent Enforced Zero Trust
-        - The use case for Privileged Identity Management and Just-In-Time Access
+        Das Ziel dieses Buches ist es, den Roman "Unterm Rad" von Hermann Hesse im exakt gleichen Stil wie das Original neu zu schreiben, jedoch mit einer weiblichen Hauptfigur und in die moderne Zeit des Jahres 2024 übertragen.
+        Das Buch soll in Schweizer Hochdeutsch verfasst werden.
     """
 
 class BookFlow(Flow[BookState]):

@@ -1,24 +1,24 @@
 research_topic:
   description: >
-    Research the provided topic of {topic} to gather the most important information that will 
-    be useful in creating a book outline. Ensure you focus on high-quality, reliable sources.
+    Recherchieren Sie das Thema des Romans "Unterm Rad" von Hermann Hesse, um die wichtigsten Informationen zu sammeln, die für die Erstellung einer Buchgliederung nützlich sind. 
+    Stellen Sie sicher, dass Sie sich auf hochwertige, zuverlässige Quellen konzentrieren.
 
-    Here is some additional information about the author's desired goal for the book:\n\n {goal}
+    Hier sind einige zusätzliche Informationen über das gewünschte Ziel des Autors für das Buch:\n\n {goal}
   expected_output: >
-    A set of key points and important information about {topic} that will be used to create the outline.
+    Eine Sammlung von Schlüsselpunkten und wichtigen Informationen über den Roman "Unterm Rad", die zur Erstellung der Gliederung verwendet werden.
   agent: researcher
 
 generate_outline:
   description: >
-    Create a book outline with chapters in sequential order based on the research findings. 
-    Ensure that each chapter has a title and a brief description that highlights the topics and subtopics to be covered.
-    It's important to note that each chapter is only going to be 3,000 words or less.
-    Also, make sure that you do not duplicate any chapters or topics in the outline.
+    Erstellen Sie eine Buchgliederung mit Kapiteln in der richtigen Reihenfolge basierend auf den Forschungsergebnissen. 
+    Stellen Sie sicher, dass jedes Kapitel einen Titel und eine kurze Beschreibung enthält, die die Themen und Unterthemen hervorhebt, die behandelt werden sollen.
+    Es ist wichtig zu beachten, dass jedes Kapitel nur 3.000 Wörter oder weniger umfassen wird.
+    Stellen Sie außerdem sicher, dass Sie keine Kapitel oder Themen in der Gliederung duplizieren.
 
-    Here is some additional information about the author's desired goal for the book:\n\n {goal}
+    Hier sind einige zusätzliche Informationen über das gewünschte Ziel des Autors für das Buch:\n\n {goal}
 
   expected_output: >
-    A pydantic dataset of chapters that each contain one title (str) and one description (str) of what each chapter 
-    in the book will contain. No intro or conclusion sentences must be written.
-    Explicit Output ``{{"chapters":[{{"title"="aa","description"="bb"}},{{"title"="cc","description"="dd"}}] }}``
+    Ein pydantisches Datenset von Kapiteln, die jeweils einen Titel (str) und eine Beschreibung (str) dessen enthalten, was jedes Kapitel im Buch enthalten wird. 
+    Es dürfen keine Einleitungs- oder Schlusssätze geschrieben werden.
+    Explizite Ausgabe ``{{"chapters":[{{"title"="aa","description"="bb"}},{{"title"="cc","description"="dd"}}] }}``
   agent: outliner
